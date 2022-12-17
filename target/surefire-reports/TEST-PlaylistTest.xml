@@ -60,10 +60,10 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="PlaylistTest" name="testMergeTwoPlaylist" time="0"/>
   <testcase classname="PlaylistTest" name="testCreateRandomPlaylistByGenre" time="0"/>
-  <testcase classname="PlaylistTest" name="testToXML" time="0.002"/>
-  <testcase classname="PlaylistTest" name="testToJSON" time="0"/>
-  <testcase classname="PlaylistTest" name="testAddSong" time="0"/>
-  <testcase classname="PlaylistTest" name="testDeleteSong" time="0.001"/>
+  <testcase classname="PlaylistTest" name="testMergeTwoPlaylist" time="0"/>
+  <testcase classname="PlaylistTest" name="testAddSong" time="0.001"/>
+  <testcase classname="PlaylistTest" name="testToJSON" time="0.002"/>
+  <testcase classname="PlaylistTest" name="testDeleteSong" time="0"/>
+  <testcase classname="PlaylistTest" name="testToXML" time="0"/>
 </testsuite>

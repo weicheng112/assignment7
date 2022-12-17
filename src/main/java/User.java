@@ -34,8 +34,12 @@ public class User {
 
     }
 
+
+    /**
+     * Save all the Song in the userSong into DB
+     */
     public void storeSong(){
-        ArrayList<String> sqlSongList=new ArrayList<>();
+        ArrayList<String> sqlSongList=new ArrayList<String>();
         for(Song s: userSong){
             sqlSongList.add(s.toSQL());
         }
@@ -74,8 +78,11 @@ public class User {
 
     }
 
+    /**
+     * Save all the Album in the userAlbum into DB
+     */
     public void storeAlbum(){
-        ArrayList<String> sqlAlbumList = new ArrayList<>();
+        ArrayList<String> sqlAlbumList = new ArrayList<String>();
 
         for(Album a: userAlbum){
             sqlAlbumList.add(a.toSQL());
@@ -114,9 +121,11 @@ public class User {
 
 
     }
-
+    /**
+     * Save all the Artist in the userArtist into DB
+     */
     public void storeArtist(){
-        ArrayList<String> sqlArtistList = new ArrayList<>();
+        ArrayList<String> sqlArtistList = new ArrayList<String>();
         for(Artist a: userArtist){
             sqlArtistList.add(a.toSQL());
         }
@@ -155,15 +164,18 @@ public class User {
 
     }
 
+    /**
+     * Create the original Music for the user
+     */
     public void defaultMusicBox(){
-        userSong = new ArrayList<>();
-        userAlbum = new ArrayList<>();
-        userArtist = new ArrayList<>();
+        userSong = new ArrayList<Song>();
+        userAlbum = new ArrayList<Album>();
+        userArtist = new ArrayList<Artist>();
         Song song1 = new Song("Fix You");
         Artist artist1 = new Artist("Coldplay");
         Album album1 = new Album("X&Y");
-        ArrayList<Song> tempSonglist = new ArrayList<>();
-        ArrayList<Album> tempAlbumlist = new ArrayList<>();
+        ArrayList<Song> tempSonglist = new ArrayList<Song>();
+        ArrayList<Album> tempAlbumlist = new ArrayList<Album>();
         tempAlbumlist.add(album1); tempSonglist.add(song1);
         //song setup
         song1.setPerformer(artist1);song1.setAlbum(album1);
@@ -177,7 +189,13 @@ public class User {
         //need to figure out how to fix it in the future!!!!
     }
 
-
+    /**
+     * Search for Song base on previous searching on album
+     * using mbIDFromAlbum to do that
+     * user could choose what they want and create new Song into userSong
+     * @param mbIDFromAlbum from the method: searchForAlbum
+     *                      the unique ID in MusicBrainz
+     */
     public void searchForSong(String mbIDFromAlbum){
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -218,6 +236,16 @@ public class User {
         }
     }
 
+    /**
+     * Search for Album base on previous searching on Artist
+     * using mbIDFromArtist to search for the Artist all album
+     * release-groups is kind of album in MusicBrainz (not duplicate)
+     * but we want to see the real album we need to go through release
+     * therefore base on release-groupsID we still need releaseID(real album)
+     * that we can find the song in release
+     * @param mbIDFromArtist from the method: searchForArtist
+     * @return albumId: the real album ID to find the song in that
+     */
     public String searchForAlbum(String mbIDFromArtist){
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -283,6 +311,12 @@ public class User {
         }
     }
 
+    /**
+     * Search for Artist by user providing artist name
+     *
+     * @param userString user can decide which artist they want to find
+     * @return artistID: the artist ID in the MusicBrainz
+     */
     public String searchForArtist(String userString){
 
         userString.split(" ");
@@ -322,6 +356,10 @@ public class User {
         }
     }
 
+    /**
+     * the method that in the starter() that user can generate their own playlist
+     * and print out the playlist in the XML format
+     */
     public void createPlayList(){
         Playlist pl = new Playlist();
         for ( int i=0; i<userSong.size();i++){
@@ -344,6 +382,13 @@ public class User {
 
     }
 
+    /**
+     * combine all the method in it
+     * 1:Let user browse all the music information ( default)
+     * 2:Let user search for music online (from MusicBrainz) starting with artist
+     * 3:Let user create their own playlist and output in the XML format
+     *
+     */
     public void starter(){
         defaultMusicBox();
         String endOff;
@@ -380,8 +425,8 @@ public class User {
             Album tempAlbum = userAlbum.get(userAlbum.size()-1);
             Artist tempArtist = userArtist.get(userArtist.size()-1);
 
-            ArrayList<Song> tempSlist = new ArrayList<>();
-            ArrayList<Album> tempAlist = new ArrayList<>();
+            ArrayList<Song> tempSlist = new ArrayList<Song>();
+            ArrayList<Album> tempAlist = new ArrayList<Album>();
             tempAlist.add(tempAlbum); tempSlist.add(tempSong);
             //song setup
             tempSong.setPerformer(tempArtist);tempSong.setAlbum(tempAlbum);
@@ -412,7 +457,10 @@ public class User {
     }
 
 
-
+    /**
+     * Start Here!!!!
+     * @param args
+     */
     public static void main(String[] args) {
         User u = new User();
         u.starter();
