@@ -1,5 +1,5 @@
 # assignment7
-using user class to run this code
+Using user class to run this code
 the more detialed explaination is above the class
 
 Normally, all the test and main work!
