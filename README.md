@@ -17,6 +17,8 @@ image is about "searchForSong" "searchForArtist" "searchForAlbum" in the user cl
 
 <updated Dec 22>
 finally fix the xml problem!!!
-we should make sure that the inputStream need to be xml format. I created a new test(RestExampleTest) amd noticed that if I didn't make "hardcode" format like: &fmt=xml in the end of the url. The inputStream would become json format randomly. That's the reason why the problem:/n"org.xml.sax.SAXParseException: Content is not allowed in prolog" appear randomly..... /n I will show the picture below.
+we should make sure that the inputStream need to be xml format. I created a new test(RestExampleTest) amd noticed that if I didn't make "hardcode" format like: &fmt=xml in the end of the url. The inputStream would become json format randomly. That's the reason why the problem:  
+"org.xml.sax.SAXParseException: Content is not allowed in prolog" appear randomly.....  
+I will show the picture below.
 ![assignment7](https://user-images.githubusercontent.com/108167692/209095450-cabe608c-0862-4647-8746-e7ba27a9728a.jpg)
 
