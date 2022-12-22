@@ -12,16 +12,15 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
 
-public class RestExamples {
+
+public class RestExampleTest {
     /** TheAudioDB uses a REST interface, accepting URLs as input and returning JSON. Here's an example of
      * how to fetch info about The Beatles. (of course.)
      * TheAudioDB's API is described here. If you pay $3, you can get access to all their Patreon services; the free
@@ -75,15 +74,7 @@ public class RestExamples {
 
     }
 
-    public static String getContent(Node n) {
-        StringBuilder sb =new StringBuilder();
-        Node child = n.getFirstChild();
-        sb.append(child.getNodeValue());
-        return sb.toString();
-
-    }
-    public static String MusicBrainzExample() {
-
+    public static void MusicBrainzExample() {
 
         String initialURL = "https://musicbrainz.org/ws/2/artist?query=beatles&fmt=xml";
         /* MusicBrainz gives each element in their DB a unique ID, called an MBID. We'll use this to fecth that. */
@@ -97,65 +88,67 @@ public class RestExamples {
              * issue, and they won't block your IP. */
             u.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");
 
-            InputStream in = u.getInputStream();
-            Document doc = db.parse(in);
-            in.close();
+
+            InputStream in = null;
+            in = u.getInputStream();
+            InputStream raw = new BufferedInputStream(in);
+            Reader r = new InputStreamReader(raw);
+
+            //打印输出
+            int c;
+            while((c = r.read())>0){
+                System.out.println((char)c);
+            }
+
+
+
+//            Document doc = db.parse(u.getInputStream());
             /* let's get the artist-list node */
-            NodeList artists = doc.getElementsByTagName("artist-list");
+//            NodeList artists = doc.getElementsByTagName("artist-list");
             /* let's assume that the one we want is first. */
-            Node beatlesNode = artists.item(0).getFirstChild();
-            Node beatlesIDNode = beatlesNode.getAttributes().getNamedItem("id");
-            String id = beatlesIDNode.getNodeValue();
-            System.out.println("-------------");
-            System.out.println(id);
+//            Node beatlesNode = artists.item(0).getFirstChild();
+//            Node beatlesIDNode = beatlesNode.getAttributes().getNamedItem("id");
+//            String id = beatlesIDNode.getNodeValue();
+//            System.out.println("-------------");
+//            System.out.println(id);
 
+
+            String id = "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d";
             /* Now let's use that ID to get info specifically about this artist. */
-
-
-            return id;
-
-        } catch (Exception ex) {
-            System.out.println("XML parsing error" + ex);
-            return null;
-        }
-    }
-
-
-    public static void sperateMethod(String id){
-
-        try {
-            DocumentBuilderFactory dbf1 = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db1 = dbf1.newDocumentBuilder();
-
-            String lookupURL = "https://musicbrainz.org/ws/2/artist/" + id + "?inc=aliases";
-
+//
+            String lookupURL = "https://musicbrainz.org/ws/2/artist/" + id + "?inc=aliases&fmt=xml";
             URLConnection u2 = new URL(lookupURL).openConnection();
             u2.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");
 
-            Document doc1;
+            InputStream in2;
+            in2 = u2.getInputStream();
+            InputStream raw2 = new BufferedInputStream(in2);
+            Reader r1 = new InputStreamReader(raw2);
 
-            InputStream in = u2.getInputStream();
-
-            doc1 = db1.parse(in);
-            in.close();
-            /* let's get all the aliases. */
-            NodeList aliases = doc1.getElementsByTagName("alias");
-            for (int i = 0; i < aliases.getLength(); i++) {
-                System.out.println(aliases.item(i).getFirstChild().getNodeValue());
+            int d;
+            while((d = r1.read())>0){
+                System.out.print((char)d);
             }
-        }catch (Exception ex){
+
+
+
+//
+//            db = dbf.newDocumentBuilder();
+//            Document doc = db.parse(u2.getInputStream());
+//            /* let's get all the aliases. */
+//            NodeList aliases = doc.getElementsByTagName("alias");
+//            for (int i = 0; i < aliases.getLength(); i++) {
+//                System.out.println(aliases.item(i).getFirstChild().getNodeValue());
+//            }
+
+        } catch (Exception ex) {
             System.out.println("XML parsing error" + ex);
         }
     }
 
 
-
-
-
-
     public static void main(String[] args) {
-
-        sperateMethod(MusicBrainzExample());
-
+        MusicBrainzExample();
     }
+
 }

@@ -201,7 +201,7 @@ public class User {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db ;
 
-            String lookupURL = "https://musicbrainz.org/ws/2/release/" + mbIDFromAlbum + "?inc=recordings";
+            String lookupURL = "https://musicbrainz.org/ws/2/release/" + mbIDFromAlbum + "?inc=recordings&fmt=xml";
             URLConnection u2 = new URL(lookupURL).openConnection();
             u2.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");
             Document doc ;
@@ -216,7 +216,7 @@ public class User {
                 System.out.println(getContent(songs2));
             }
             System.out.println("-------");
-            System.out.println("choose what you like:)");
+            System.out.println("choose what you like(song's name):)");
             Scanner sc = new Scanner(System.in);
             String ans = sc.next();
             for (int i=0 ; i< songs.getLength();i++) {
@@ -251,7 +251,7 @@ public class User {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
 
-            String lookupURL = "https://musicbrainz.org/ws/2/artist/" + mbIDFromArtist + "?inc=release-groups";
+            String lookupURL = "https://musicbrainz.org/ws/2/artist/" + mbIDFromArtist + "?inc=release-groups&fmt=xml";
             URLConnection u2 = new URL(lookupURL).openConnection();
             u2.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");
             Document doc ;
@@ -271,7 +271,7 @@ public class User {
             }
 
             System.out.println("-------");
-            System.out.println("choose what you like:)");
+            System.out.println("choose what you like (album's name):)");
             Scanner sc = new Scanner(System.in);
             String ans = sc.next();
             for (int i = 0; i < artists.getLength(); i++) {
@@ -291,7 +291,7 @@ public class User {
 //            Node beatlesIDNode = beatlesNode.getAttributes().getNamedItem("id");
 //            String id = beatlesIDNode.getNodeValue();
 
-            String lookupURL2= "https://musicbrainz.org/ws/2/release-group/"+releaseGroupId+"?inc=releases";
+            String lookupURL2= "https://musicbrainz.org/ws/2/release-group/"+releaseGroupId+"?inc=releases&fmt=xml";
             URLConnection u3 = new URL(lookupURL2).openConnection();
             u3.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");
             db = dbf.newDocumentBuilder();
