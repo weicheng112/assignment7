@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="RestExamplesTest" time="2.166" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="RestExamplesTest" time="1.838" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.2.1"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -60,7 +60,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="RestExamplesTest" name="testMusicBrainzExample" time="1.67"/>
-  <testcase classname="RestExamplesTest" name="testXML" time="0.245"/>
-  <testcase classname="RestExamplesTest" name="testMusicSong" time="0.251"/>
+  <testcase classname="RestExamplesTest" name="testMusicBrainzExample" time="1.444"/>
+  <testcase classname="RestExamplesTest" name="testXML" time="0.197"/>
+  <testcase classname="RestExamplesTest" name="testMusicSong" time="0.197"/>
 </testsuite>
