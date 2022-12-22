@@ -16,7 +16,7 @@ image is about "searchForSong" "searchForArtist" "searchForAlbum" in the user cl
 ![image](https://user-images.githubusercontent.com/108167692/208228714-cbb60179-5581-4a03-a8f1-1e5d29d897f4.jpg)
 
 
-<updated Dec 22>
+<Updated Dec 22>  
 finally fix the xml problem!!!
 we should make sure that the inputStream need to be xml format. I created a new test(RestExampleTest) amd noticed that if I didn't make "hardcode" format like: &fmt=xml in the end of the url. The inputStream would become json format randomly. That's the reason why the problem:  
 [Fatal Error] :1:1: Content is not allowed in prolog.  
