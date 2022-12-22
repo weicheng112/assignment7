@@ -127,7 +127,7 @@ public class RestExamples {
             DocumentBuilderFactory dbf1 = DocumentBuilderFactory.newInstance();
             DocumentBuilder db1 = dbf1.newDocumentBuilder();
 
-            String lookupURL = "https://musicbrainz.org/ws/2/artist/" + id + "?inc=aliases";
+            String lookupURL = "https://musicbrainz.org/ws/2/artist/" + id + "?inc=aliases&fmt=xml";
 
             URLConnection u2 = new URL(lookupURL).openConnection();
             u2.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");

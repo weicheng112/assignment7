@@ -18,7 +18,7 @@ image is about "searchForSong" "searchForArtist" "searchForAlbum" in the user cl
 
 <Updated Dec 22>  
 finally fix the xml problem!!!
-we should make sure that the inputStream need to be xml format. I created a new test(RestExampleTest) amd noticed that if I didn't make "hardcode" format like: &fmt=xml in the end of the url. The inputStream would become json format randomly. That's the reason why the problem:  
+we should make sure that the inputStream need to be xml format. I created a new test(RestExampleTest101) amd noticed that if I didn't make "hardcode" format like: &fmt=xml in the end of the url. The inputStream would become json format randomly. That's the reason why the problem:  
 [Fatal Error] :1:1: Content is not allowed in prolog.  
 XML parsing errororg.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.  
 appear randomly.....  

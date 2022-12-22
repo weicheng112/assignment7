@@ -4,10 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 
 
 import javax.xml.parsers.DocumentBuilder;
@@ -20,7 +16,7 @@ import java.net.URLConnection;
 import java.util.Scanner;
 
 
-public class RestExampleTest {
+public class RestExampleTest101 {
     /** TheAudioDB uses a REST interface, accepting URLs as input and returning JSON. Here's an example of
      * how to fetch info about The Beatles. (of course.)
      * TheAudioDB's API is described here. If you pay $3, you can get access to all their Patreon services; the free

@@ -44,7 +44,7 @@
     <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.2.1 test"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.2.1 package"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-17.0.4.1"/>
     <property name="user.language" value="zh"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -62,8 +62,8 @@
   </properties>
   <testcase classname="PlaylistTest" name="testCreateRandomPlaylistByGenre" time="0"/>
   <testcase classname="PlaylistTest" name="testMergeTwoPlaylist" time="0"/>
-  <testcase classname="PlaylistTest" name="testAddSong" time="0.001"/>
-  <testcase classname="PlaylistTest" name="testToJSON" time="0.002"/>
+  <testcase classname="PlaylistTest" name="testAddSong" time="0"/>
   <testcase classname="PlaylistTest" name="testDeleteSong" time="0"/>
-  <testcase classname="PlaylistTest" name="testToXML" time="0"/>
+  <testcase classname="PlaylistTest" name="testToXML" time="0.002"/>
+  <testcase classname="PlaylistTest" name="testToJSON" time="0.001"/>
 </testsuite>

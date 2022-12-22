@@ -59,7 +59,7 @@ public class RestExamplesTest extends TestCase {
             /* Now let's use that ID to get info specifically about this artist. */
 
             /* check out the weeknd's album*/
-            String lookupURL = "https://musicbrainz.org/ws/2/artist/" + id + "?inc=release-groups";
+            String lookupURL = "https://musicbrainz.org/ws/2/artist/" + id + "?inc=release-groups&fmt=xml";
             URLConnection u2 = new URL(lookupURL).openConnection();
             u2.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");
 
@@ -82,7 +82,7 @@ public class RestExamplesTest extends TestCase {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db;
 
-            String lookupURL = "https://musicbrainz.org/ws/2/release/8793ef8f-f1c1-4c58-90dd-268cf6d35a71?inc=recordings";
+            String lookupURL = "https://musicbrainz.org/ws/2/release/8793ef8f-f1c1-4c58-90dd-268cf6d35a71?inc=recordings&fmt=xml";
             URLConnection u2 = new URL(lookupURL).openConnection();
             u2.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");
             Document doc;
@@ -104,7 +104,7 @@ public class RestExamplesTest extends TestCase {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db ;
 
-            String lookupURL = "https://musicbrainz.org/ws/2/release/8793ef8f-f1c1-4c58-90dd-268cf6d35a71?inc=recordings";
+            String lookupURL = "https://musicbrainz.org/ws/2/release/8793ef8f-f1c1-4c58-90dd-268cf6d35a71?inc=recordings&fmt=xml";
             URLConnection u2 = new URL(lookupURL).openConnection();
             u2.setRequestProperty("User-Agent", "Application ExampleParser/1.0 (cbrooks@usfca.edu");
             Document doc ;
